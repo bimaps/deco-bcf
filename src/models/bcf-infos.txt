@@ -1,0 +1,58 @@
+https://github.com/buildingSMART/BCF-XML/blob/release_2_1/Extension%20Schemas/extensions.xsd
+
+markup.bcf
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Markup>
+	<Topic Guid="ba430618-aa76-4d35-b316-865cfb42360e" TopicType="Request" TopicStatus="Closed">
+		<Title>Test 2</Title>
+		<Priority>Normal</Priority>
+		<Index>2</Index>
+		<CreationDate>2020-01-23T11:13:26+00:00</CreationDate>
+		<CreationAuthor>tamu19@p5rd.com</CreationAuthor>
+		<ModifiedDate>2020-01-23T11:14:46+00:00</ModifiedDate>
+		<ModifiedAuthor>tamu19@p5rd.com</ModifiedAuthor>
+		<DueDate>2020-01-23T00:00:00+00:00</DueDate>
+		<AssignedTo>tamu19@p5rd.com</AssignedTo>
+		<Description>Super description</Description>
+	</Topic>
+	<Comment Guid="d875ca20-18a4-497f-b06b-0a4e76f2fd33">
+		<Date>2020-01-23T11:14:14+00:00</Date>
+		<Author>tamu19@p5rd.com</Author>
+		<Comment>2ème commentaire</Comment>
+		<Viewpoint Guid="c2cccba1-6638-41f1-9678-d43cf67ba098" />
+		<ModifiedDate>2020-01-23T11:14:14+00:00</ModifiedDate>
+		<ModifiedAuthor>tamu19@p5rd.com</ModifiedAuthor>
+	</Comment>
+	<Viewpoints Guid="c2cccba1-6638-41f1-9678-d43cf67ba098">
+		<Viewpoint>viewpoint.bcfv</Viewpoint>
+		<Snapshot>snapshot.png</Snapshot>
+	</Viewpoints>
+</Markup>
+
+
+
+viewpoint.bcfv
+
+<?xml version="1.0" encoding="UTF-8"?>
+<VisualizationInfo Guid="c2cccba1-6638-41f1-9678-d43cf67ba098">
+	<Components>
+		<ViewSetupHints SpacesVisible="false" SpaceBoundariesVisible="false" OpeningsVisible="false" />
+	</Components>
+	<DrawingViewport>
+		<Client>REVIT</Client>
+		<ViewName>IMPL - P01 FM</ViewName>
+		<ViewType>1</ViewType>
+		<ViewStory>0</ViewStory>
+		<ViewID1>0</ViewID1>
+		<ViewID2>0</ViewID2>
+		<ViewLeftTop>
+			<X>-132.47308099456004</X>
+			<Y>28.173425861657826</Y>
+		</ViewLeftTop>
+		<ViewRightBottom>
+			<X>-126.40871801956735</X>
+			<Y>35.455683678419227</Y>
+		</ViewRightBottom>
+	</DrawingViewport>
+</VisualizationInfo>

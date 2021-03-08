@@ -1,0 +1,28 @@
+{
+  "name": "deco-bcf",
+  "version": "1.0.0",
+  "description": "BCF module for deco-api project. Quickly put together a full BCF RestAPI.",
+  "main": "build/index.js",
+  "scripts": {
+    "tsc": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/adm-zip": "^0.4.33",
+    "@types/jsdom": "^12.2.4",
+    "@types/mkdirp": "^0.5.2",
+    "@types/xml": "^1.0.5",
+    "adm-zip": "^0.5.2",
+    "deco-api": "git+https://github.com/platform5/deco-api.git",
+    "typescript": "^3.0.0",
+    "xml": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^3.0.0",
+    "jest": "^23.4.1",
+    "ts-jest": "^23.0.1"
+  }
+}
