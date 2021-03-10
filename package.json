@@ -16,7 +16,6 @@
     "@types/mkdirp": "^0.5.2",
     "@types/xml": "^1.0.5",
     "adm-zip": "^0.5.2",
-    "deco-api": "git+https://github.com/platform5/deco-api.git#2564909c941eb8195e7c63ddd950248f981d8f4a",
     "typescript": "^3.0.0",
     "xml": "^1.0.1"
   },
@@ -24,5 +23,8 @@
     "@types/bcrypt": "^3.0.0",
     "jest": "^23.4.1",
     "ts-jest": "^23.0.1"
+  },
+  "peerDependencies": {
+    "deco-api": "git+https://github.com/platform5/deco-api.git#2564909c941eb8195e7c63ddd950248f981d8f4a"
   }
 }
