@@ -25,6 +25,6 @@
     "ts-jest": "^23.0.1"
   },
   "peerDependencies": {
-    "deco-api": "git+https://github.com/platform5/deco-api.git#4be702c92ffbbc0280a83951b05c2382112cab69"
+    "deco-api": "git+https://github.com/platform5/deco-api.git"
   }
 }
