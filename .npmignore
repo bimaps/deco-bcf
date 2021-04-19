@@ -1,0 +1,14 @@
+
+
+/node_modules
+
+# Documentation
+/docs
+typedoc.json
+
+# Source
+/src
+/_ifc_sources
+install-last-deco-api.sh
+tsconfig.json
+types.d.ts
