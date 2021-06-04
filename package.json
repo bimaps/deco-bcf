@@ -1,6 +1,6 @@
 {
   "name": "deco-bcf",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "BCF module for deco-api project. Quickly put together a full BCF RestAPI.",
   "main": "build/index.js",
   "scripts": {
