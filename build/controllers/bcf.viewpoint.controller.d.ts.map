@@ -1,1 +1,1 @@
-{"version":3,"file":"bcf.viewpoint.controller.d.ts","sourceRoot":"","sources":["../../src/controllers/bcf.viewpoint.controller.ts"],"names":[],"mappings":"AAKA,OAAO,EAAE,MAAM,EAAE,MAAM,SAAS,CAAC;AA2FjC,eAAO,MAAM,sBAAsB,EAAE,MAAe,CAAC"}
+{"version":3,"file":"bcf.viewpoint.controller.d.ts","sourceRoot":"","sources":["../../src/controllers/bcf.viewpoint.controller.ts"],"names":[],"mappings":"AAKA,OAAO,EAAE,MAAM,EAAE,MAAM,SAAS,CAAC;AA+FjC,eAAO,MAAM,sBAAsB,EAAE,MAAe,CAAC"}

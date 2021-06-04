@@ -13,6 +13,8 @@ let projectController = new BcfCoreControllerMiddleware(BcfProjectModel);
 let topicController = new BcfCoreControllerMiddleware(BcfTopicModel);
 let commentController = new BcfCoreControllerMiddleware(BcfCommentModel);
 
+router.use(projectController.registerPolicyMountingPoint('bcf.comment'))
+
 router.get(
   '/:projectId/topics/:topicId/comments' + ControllerMiddleware.getAllRoute(),
   AppMiddleware.fetchWithPublicKey,
@@ -32,6 +34,7 @@ router.get(
     }
     next();
   },
+  commentController.registerPolicyMountingPoint(['bcf.comment.get']),
   commentController.prepareQueryFromReq(),
   commentController.getAll()
 );
@@ -46,6 +49,7 @@ router.get(
   topicController.getTopicFirst,
   topicController.getOne({ignoreSend: true, ignoreOutput: true, ignoreDownload: true}),
   commentController.storeTopicElement,
+  commentController.registerPolicyMountingPoint(['bcf.comment.get']),
   commentController.getOne()
 );
 
@@ -61,7 +65,7 @@ router.post(
   topicController.storeTopicElement,
   commentController.prepareCommentBody(),
   projectController.prepareAuthorBody(),
-  // AppMiddleware.addAppIdToBody('appId'),
+  commentController.registerPolicyMountingPoint(['bcf.comment.write', 'bcf.comment.post']),
   commentController.post()
 );
 
@@ -77,7 +81,7 @@ router.put(
   topicController.storeTopicElement,
   commentController.prepareCommentBody(),
   projectController.prepareAuthorBody(),
-  // AppMiddleware.addAppIdToBody('appId'),
+  commentController.registerPolicyMountingPoint(['bcf.comment.write', 'bcf.comment.put']),
   commentController.put()
 );
 
@@ -91,7 +95,7 @@ router.delete(
   topicController.getTopicFirst,
   topicController.getOne({ignoreSend: true, ignoreOutput: true, ignoreDownload: true}),
   topicController.storeTopicElement,
-  // topicController.checkProjectAuthorization('update'),
+  commentController.registerPolicyMountingPoint(['bcf.comment.write', 'bcf.comment.delete']),
   commentController.delete()
 );
 

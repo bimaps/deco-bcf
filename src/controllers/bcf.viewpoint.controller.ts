@@ -12,6 +12,8 @@ let projectController = new BcfCoreControllerMiddleware(BcfProjectModel);
 let topicController = new BcfCoreControllerMiddleware(BcfTopicModel);
 let viewpointController = new BcfCoreControllerMiddleware(BcfViewpointModel);
 
+router.use(viewpointController.registerPolicyMountingPoint('bcf.viewpoint'));
+
 router.get(
   '/:projectId/topics/:topicId/viewpoints' + ControllerMiddleware.getAllRoute(),
   AppMiddleware.fetchWithPublicKey,
@@ -32,6 +34,7 @@ router.get(
     next();
   },
   viewpointController.prepareQueryFromReq(),
+  viewpointController.registerPolicyMountingPoint(['bcf.viewpoint.get']),
   viewpointController.getAll()
 );
 
@@ -45,6 +48,7 @@ router.get(
   topicController.getTopicFirst,
   topicController.getOne({ignoreSend: true, ignoreOutput: true, ignoreDownload: true}),
   viewpointController.storeTopicElement,
+  viewpointController.registerPolicyMountingPoint(['bcf.viewpoint.get']),
   viewpointController.getOne()
 );
 
@@ -60,7 +64,7 @@ router.post(
   topicController.storeTopicElement,
   viewpointController.prepareViewpointBody(),
   viewpointController.prepareAuthorBody(),
-  // AppMiddleware.addAppIdToBody('appId'),
+  viewpointController.registerPolicyMountingPoint(['bcf.viewpoint.write', 'bcf.viewpoint.post']),
   viewpointController.post()
 );
 
@@ -76,7 +80,7 @@ router.put(
   topicController.storeTopicElement,
   viewpointController.prepareViewpointBody(),
   viewpointController.prepareAuthorBody(),
-  // AppMiddleware.addAppIdToBody('appId'),
+  viewpointController.registerPolicyMountingPoint(['bcf.viewpoint.write', 'bcf.viewpoint.put']),
   viewpointController.put()
 );
 
@@ -90,7 +94,7 @@ router.delete(
   topicController.getTopicFirst,
   topicController.getOne({ignoreSend: true, ignoreOutput: true, ignoreDownload: true}),
   topicController.storeTopicElement,
-  // topicController.checkProjectAuthorization('update'),
+  viewpointController.registerPolicyMountingPoint(['bcf.viewpoint.write', 'bcf.viewpoint.delete']),
   viewpointController.delete()
 );
 

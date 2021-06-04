@@ -11,6 +11,8 @@ const router: Router = Router();
 let projectController = new BcfCoreControllerMiddleware(BcfProjectModel);
 let topicController = new BcfCoreControllerMiddleware(BcfTopicModel);
 
+router.use(topicController.registerPolicyMountingPoint(['bcf.topic']))
+
 router.get(
   '/:projectId/topics' + ControllerMiddleware.getAllRoute(),
   AppMiddleware.fetchWithPublicKey,
@@ -24,6 +26,7 @@ router.get(
     }
     next();
   },
+  topicController.registerPolicyMountingPoint(['bcf.topic.get']),
   topicController.prepareQueryFromReq(),
   topicController.getAll()
 );
@@ -35,6 +38,7 @@ router.get(
   projectController.getProjectFirst,
   projectController.getOne({ignoreSend: true, ignoreOutput: true, ignoreDownload: true}),
   projectController.storeProjectElement,
+  topicController.registerPolicyMountingPoint(['bcf.topic.get']),
   topicController.getOne()
 );
 
@@ -47,7 +51,7 @@ router.post(
   projectController.storeProjectElement,
   topicController.prepareTopicBody(),
   projectController.prepareAuthorBody(),
-  // AppMiddleware.addAppIdToBody('appId'),
+  topicController.registerPolicyMountingPoint(['bcf.topic.write', 'bcf.topic.post']),
   topicController.post()
 );
 
@@ -61,7 +65,7 @@ router.put(
   topicController.prepareTopicBody(),
   projectController.prepareAuthorBody(),
   topicController.checkProjectAuthorization('update'),
-  // AppMiddleware.addAppIdToBody('appId'),
+  topicController.registerPolicyMountingPoint(['bcf.topic.write', 'bcf.topic.put']),
   topicController.put()
 );
 
@@ -72,9 +76,8 @@ router.delete(
   projectController.getProjectFirst,
   projectController.getOne({ignoreSend: true, ignoreOutput: true, ignoreDownload: true}),
   projectController.storeProjectElement,
-  // AuthMiddleware.authenticate,
-  // AuthMiddleware.checkUserRoleAccess('adminThreeRoles'),
   topicController.checkProjectAuthorization('update'),
+  topicController.registerPolicyMountingPoint(['bcf.topic.write', 'bcf.topic.delete']),
   topicController.delete()
 );
 

@@ -1,1 +1,1 @@
-{"version":3,"file":"bcf.topic.controller.d.ts","sourceRoot":"","sources":["../../src/controllers/bcf.topic.controller.ts"],"names":[],"mappings":"AAIA,OAAO,EAAE,MAAM,EAAE,MAAM,SAAS,CAAC;AA4EjC,eAAO,MAAM,kBAAkB,EAAE,MAAe,CAAC"}
+{"version":3,"file":"bcf.topic.controller.d.ts","sourceRoot":"","sources":["../../src/controllers/bcf.topic.controller.ts"],"names":[],"mappings":"AAIA,OAAO,EAAE,MAAM,EAAE,MAAM,SAAS,CAAC;AA+EjC,eAAO,MAAM,kBAAkB,EAAE,MAAe,CAAC"}

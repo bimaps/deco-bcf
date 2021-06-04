@@ -1,9 +1,11 @@
-import { AppMiddleware, UserModel } from 'deco-api';
+import { AppMiddleware, PolicyController, UserModel } from 'deco-api';
 import { BcfCoreControllerMiddleware } from './bcf.core.controller';
 import { Router, Request, Response, NextFunction } from 'express';
 let debug = require('debug')('app:controller:bcf:user');
 
 const router: Router = Router();
+
+router.use(PolicyController.registerPolicyMountingPoint(['bcf.user']));
 
 router.get(
   '/',

@@ -5,21 +5,27 @@ const bcf_topic_1 = require("../models/bcf.topic");
 const bcf_project_1 = require("../models/bcf.project");
 const deco_api_1 = require("deco-api");
 let debug = require('debug')('app:controller:bcf:core');
-class BcfCoreControllerMiddleware extends deco_api_1.ControllerMiddleware {
+class BcfCoreControllerMiddleware extends deco_api_1.PolicyController {
     extendGetAllQuery(query, req, res) {
         let appId = res.locals.app._id;
         let readQuery = { appId: appId };
         query.addQuery(readQuery);
-        return super.extendGetAllQuery(query, req, res).then(() => {
+        return super.extendGetAllQuery(query, req, res, {}).then(() => {
         });
     }
     static authenticate(req, res, next) {
+        if (!BcfCoreControllerMiddleware.useBCFAuthentication) {
+            return next();
+        }
         // TODO: this authenticate method must also implement an oAuth2
         // authenticate option to be full compatible with BCF API requirements
         return deco_api_1.AuthMiddleware.authenticate(req, res, next);
     }
     checkProjectAuthorization(action) {
         return (req, res, next) => {
+            if (!BcfCoreControllerMiddleware.useBCFAuthentication) {
+                return next();
+            }
             if (!res.locals.bcfActionRequired)
                 res.locals.bcfActionRequired = [];
             res.locals.bcfActionRequired.push(action);
@@ -191,4 +197,5 @@ class BcfCoreControllerMiddleware extends deco_api_1.ControllerMiddleware {
     }
 }
 exports.BcfCoreControllerMiddleware = BcfCoreControllerMiddleware;
+BcfCoreControllerMiddleware.useBCFAuthentication = true;
 //# sourceMappingURL=bcf.core.controller.js.map

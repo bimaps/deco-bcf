@@ -5,9 +5,13 @@ import { BcfProjectController } from './controllers/bcf.project.controller';
 import { BcfUserController } from './controllers/bcf.user.controller';
 import { BcfAuthController } from './controllers/bcf.auth.controller';
 import { BcfVersionController } from './controllers/bcf.version.controller';
+import { PolicyController } from 'deco-api';
 import { Router } from 'express';
 
 const router: Router = Router();
+
+router.use(PolicyController.registerPolicyMountingPoint('bcf'));
+
 // Mount BCF Controllers
 router.use('/versions', BcfVersionController);
 router.use('/2.1/auth', BcfAuthController)

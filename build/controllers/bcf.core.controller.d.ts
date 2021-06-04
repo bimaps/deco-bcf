@@ -1,7 +1,8 @@
 import { BcfProjectActions } from '../models/bcf.enum';
-import { ControllerMiddleware, Model, ObjectId, Query } from 'deco-api';
+import { PolicyController, Model, ObjectId, Query } from 'deco-api';
 import { Request, Response, NextFunction } from 'express';
-export declare class BcfCoreControllerMiddleware extends ControllerMiddleware {
+export declare class BcfCoreControllerMiddleware extends PolicyController {
+    static useBCFAuthentication: boolean;
     extendGetAllQuery(query: Query, req: Request, res: Response): Promise<void>;
     static authenticate(req: Request, res: Response, next: NextFunction): void;
     checkProjectAuthorization(action: BcfProjectActions): (req: Request, res: Response, next: NextFunction) => void;

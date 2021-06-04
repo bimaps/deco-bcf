@@ -1,1 +1,1 @@
-{"version":3,"file":"bcf.comment.controller.d.ts","sourceRoot":"","sources":["../../src/controllers/bcf.comment.controller.ts"],"names":[],"mappings":"AAKA,OAAO,EAAE,MAAM,EAAE,MAAM,SAAS,CAAC;AA4FjC,eAAO,MAAM,oBAAoB,EAAE,MAAe,CAAC"}
+{"version":3,"file":"bcf.comment.controller.d.ts","sourceRoot":"","sources":["../../src/controllers/bcf.comment.controller.ts"],"names":[],"mappings":"AAKA,OAAO,EAAE,MAAM,EAAE,MAAM,SAAS,CAAC;AAgGjC,eAAO,MAAM,oBAAoB,EAAE,MAAe,CAAC"}

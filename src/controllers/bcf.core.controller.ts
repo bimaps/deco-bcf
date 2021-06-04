@@ -1,11 +1,13 @@
 import { BcfProjectActions } from '../models/bcf.enum';
 import { BcfTopicModel } from '../models/bcf.topic';
 import { BcfProjectModel } from '../models/bcf.project';
-import { ControllerMiddleware, Model, ObjectId, Query, AuthMiddleware } from 'deco-api';
+import { PolicyController, Model, ObjectId, Query, AuthMiddleware } from 'deco-api';
 import { Request, Response, NextFunction } from 'express';
 let debug = require('debug')('app:controller:bcf:core');
 
-export class BcfCoreControllerMiddleware extends ControllerMiddleware {
+export class BcfCoreControllerMiddleware extends PolicyController {
+
+  public static useBCFAuthentication = true;
 
   public extendGetAllQuery(query: Query, req: Request, res: Response): Promise<void> {
 
@@ -13,12 +15,15 @@ export class BcfCoreControllerMiddleware extends ControllerMiddleware {
     let readQuery: any = {appId: appId};
     query.addQuery(readQuery);
 
-    return super.extendGetAllQuery(query, req, res).then(() => {
+    return super.extendGetAllQuery(query, req, res, {}).then(() => {
 
     });
   }
 
   public static authenticate(req: Request, res: Response, next: NextFunction) {
+    if (!BcfCoreControllerMiddleware.useBCFAuthentication) {
+      return next();
+    }
     // TODO: this authenticate method must also implement an oAuth2
     // authenticate option to be full compatible with BCF API requirements
     return AuthMiddleware.authenticate(req, res, next);
@@ -26,6 +31,9 @@ export class BcfCoreControllerMiddleware extends ControllerMiddleware {
 
   public checkProjectAuthorization(action: BcfProjectActions) {
     return (req: Request, res: Response, next: NextFunction) => {
+      if (!BcfCoreControllerMiddleware.useBCFAuthentication) {
+        return next();
+      }
       if (!res.locals.bcfActionRequired) res.locals.bcfActionRequired = [];
       res.locals.bcfActionRequired.push(action);
       next();

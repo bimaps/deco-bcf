@@ -1,7 +1,10 @@
+import { PolicyController } from 'deco-api';
 import { Router, Request, Response, NextFunction } from 'express';
 let debug = require('debug')('app:controller:bcf:version');
 
 const router: Router = Router();
+
+router.use(PolicyController.registerPolicyMountingPoint(['bcf.version']));
 
 router.get(
   '/',
