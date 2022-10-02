@@ -99,7 +99,7 @@ __decorate([
     deco_api_1.io.all
 ], BcfCommentModel.prototype, "comment_actions", void 0);
 BcfCommentModel = __decorate([
-    deco_api_1.model('bcf_comment')
+    (0, deco_api_1.model)('bcf_comment')
 ], BcfCommentModel);
 exports.BcfCommentModel = BcfCommentModel;
 //# sourceMappingURL=bcf.comment.js.map

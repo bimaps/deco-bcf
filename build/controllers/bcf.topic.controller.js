@@ -8,7 +8,7 @@ const bcf_core_controller_1 = require("./bcf.core.controller");
 const express_1 = require("express");
 const deco_api_2 = require("deco-api");
 let debug = require('debug')('app:controller:bcf:topic');
-const router = express_1.Router();
+const router = (0, express_1.Router)();
 let projectController = new bcf_core_controller_1.BcfCoreControllerMiddleware(bcf_project_1.BcfProjectModel);
 let topicController = new bcf_core_controller_1.BcfCoreControllerMiddleware(bcf_topic_1.BcfTopicModel);
 router.use(topicController.registerPolicyMountingPoint(['bcf.topic']));

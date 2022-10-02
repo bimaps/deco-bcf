@@ -10,7 +10,7 @@ const bcf_auth_controller_1 = require("./controllers/bcf.auth.controller");
 const bcf_version_controller_1 = require("./controllers/bcf.version.controller");
 const deco_api_1 = require("deco-api");
 const express_1 = require("express");
-const router = express_1.Router();
+const router = (0, express_1.Router)();
 exports.BcfRoutes = router;
 router.use(deco_api_1.PolicyController.registerPolicyMountingPoint('bcf'));
 // Mount BCF Controllers

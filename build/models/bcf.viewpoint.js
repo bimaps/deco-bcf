@@ -126,14 +126,17 @@ __decorate([
 __decorate([
     deco_api_1.type.any,
     deco_api_1.io.all
+    // TODO: set the right validation values
 ], BcfViewpointModel.prototype, "clipping_planes", void 0);
 __decorate([
     deco_api_1.type.any,
     deco_api_1.io.all
+    // TODO: set the right validation values
 ], BcfViewpointModel.prototype, "bitmaps", void 0);
 __decorate([
     deco_api_1.type.any,
     deco_api_1.io.all
+    // TODO: set the right validation values
 ], BcfViewpointModel.prototype, "snapshot", void 0);
 __decorate([
     deco_api_1.type.object({ keys: {
@@ -172,7 +175,7 @@ __decorate([
     deco_api_1.query.searchable
 ], BcfViewpointModel.prototype, "modified_author", void 0);
 BcfViewpointModel = __decorate([
-    deco_api_1.model('bcf_viewpoint')
+    (0, deco_api_1.model)('bcf_viewpoint')
 ], BcfViewpointModel);
 exports.BcfViewpointModel = BcfViewpointModel;
 //# sourceMappingURL=bcf.viewpoint.js.map

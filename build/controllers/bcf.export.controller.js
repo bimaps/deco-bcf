@@ -43,7 +43,7 @@ class BcfExportController {
                 { ExtensionSchema: '' }
             ]
         };
-        const xmlString = xml_1.default(xmlObject, { indent: '  ', declaration: { encoding: 'UTF-8' } });
+        const xmlString = (0, xml_1.default)(xmlObject, { indent: '  ', declaration: { encoding: 'UTF-8' } });
         this.zip.addFile('project.bcfp', Buffer.alloc(xmlString.length, xmlString));
     }
     generateVersion() {
@@ -126,7 +126,7 @@ class BcfExportController {
                     },
                 ].concat(commentsXml).concat(viewpointsXml)
             };
-            const xmlString = xml_1.default(markupXml, { indent: '  ', declaration: { encoding: 'UTF-8' } });
+            const xmlString = (0, xml_1.default)(markupXml, { indent: '  ', declaration: { encoding: 'UTF-8' } });
             this.zip.addFile(`${topic._id.toString()}/markup.bcp`, Buffer.alloc(xmlString.length, xmlString));
         });
     }
@@ -171,7 +171,7 @@ class BcfExportController {
                 viewpointXml.VisualizationInfo.push({ Components: componentsXml.Components });
             }
         }
-        const xmlString = xml_1.default(viewpointXml, { indent: '  ', declaration: { encoding: 'UTF-8' } });
+        const xmlString = (0, xml_1.default)(viewpointXml, { indent: '  ', declaration: { encoding: 'UTF-8' } });
         this.zip.addFile(`${viewpoint.topicId.toString()}/${filename}`, Buffer.alloc(xmlString.length, xmlString));
     }
     generateSnapshot(viewpoint, filename) {

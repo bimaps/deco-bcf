@@ -7,7 +7,7 @@ const bcf_project_1 = require("../models/bcf.project");
 const bcf_core_controller_1 = require("./bcf.core.controller");
 const express_1 = require("express");
 let debug = require('debug')('app:controller:bcf:project');
-const router = express_1.Router();
+const router = (0, express_1.Router)();
 let projectController = new bcf_core_controller_1.BcfCoreControllerMiddleware(bcf_project_1.BcfProjectModel);
 let exportController = new bcf_export_controller_1.BcfExportController();
 router.use(projectController.registerPolicyMountingPoint(['bcf.project']));

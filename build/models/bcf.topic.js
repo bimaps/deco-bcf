@@ -191,7 +191,7 @@ __decorate([
     deco_api_1.io.all
 ], BcfTopicModel.prototype, "authorization_stage", void 0);
 BcfTopicModel = __decorate([
-    deco_api_1.model('bcf_topic')
+    (0, deco_api_1.model)('bcf_topic')
 ], BcfTopicModel);
 exports.BcfTopicModel = BcfTopicModel;
 //# sourceMappingURL=bcf.topic.js.map

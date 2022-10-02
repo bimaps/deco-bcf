@@ -113,7 +113,7 @@ __decorate([
     deco_api_1.io.all
 ], BcfProjectModel.prototype, "comment_actions", void 0);
 BcfProjectModel = __decorate([
-    deco_api_1.model('bcf_project')
+    (0, deco_api_1.model)('bcf_project')
 ], BcfProjectModel);
 exports.BcfProjectModel = BcfProjectModel;
 //# sourceMappingURL=bcf.project.js.map

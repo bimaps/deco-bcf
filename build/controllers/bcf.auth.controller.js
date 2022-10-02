@@ -4,7 +4,7 @@ exports.BcfAuthController = void 0;
 const deco_api_1 = require("deco-api");
 const express_1 = require("express");
 let debug = require('debug')('app:controller:bcf:version');
-const router = express_1.Router();
+const router = (0, express_1.Router)();
 router.get('/', deco_api_1.AppMiddleware.fetchWithPublicKey, (req, res, next) => {
     res.send({
         "oauth2_auth_url": "http://localhost:3000/bcf/auth/auth",
@@ -13,6 +13,8 @@ router.get('/', deco_api_1.AppMiddleware.fetchWithPublicKey, (req, res, next) =>
         "http_basic_supported": false,
         "supported_oauth2_flows": [
             "authorization_code_grant",
+            // "implicit_grant",
+            // "resource_owner_password_credentials_grant"
         ]
     });
 });
